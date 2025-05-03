@@ -1,0 +1,94 @@
+.balance {
+    text-align: center;
+    margin-bottom: var(--spacing);
+  
+    p {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+  }
+  
+  .add-transaction {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing);
+  
+    input, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+    }
+  
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  
+      &:hover {
+        background: #388e3c;
+      }
+    }
+  }
+  
+  .transaction-list {
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        display: flex;
+        flex-direction: row;  // Sol tərəfdən sağa sıralama üçün
+        justify-content: flex-start;  // Yalnızca sol tərəfə sıralama
+        align-items: center;  // Üst-orta uyğunlaşdırma
+        text-align: start;  // Mətnin sol tərəfdən başlamasını təmin et
+        background: #f9f9f9;
+        margin: 0.5rem 0;
+        padding: 0.75rem;
+        border-left: 5px solid;
+        border-radius: var(--border-radius);
+  
+        &.plus {
+          border-color: var(--primary);
+        }
+  
+        &.minus {
+          border-color: var(--secondary);
+        }
+  
+        button {
+          background: none;
+          border: none;
+          color: var(--secondary);
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+  
+        .transaction-details {
+          display: flex;
+          flex-direction: column;
+          margin-left: 1rem;  // Əlavə boşluq
+        }
+  
+        .date {
+          font-size: 0.9rem;
+          color: #777;
+        }
+      }
+    }
+  }
+  
+  
+  .chart-container {
+    position: relative;
+    width: 100%;
+    height: 40vh; /* or any desired height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  

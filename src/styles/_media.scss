@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+    .add-transaction {
+      flex-direction: row;
+  
+      input {
+        flex: 1;
+      }
+  
+      button {
+        width: 150px;
+      }
+    }
+  }
+  
