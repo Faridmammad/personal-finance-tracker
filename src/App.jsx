@@ -3,6 +3,7 @@ import AddTransaction from './components/AddTransaction';
 import TransactionList from './components/TransactionList';
 import TransactionFilter from './components/TransactionFilter';
 import Chart from './components/Chart';
+import Balance from './components/Balance'; // yeni əlavə
 
 const App = () => {
   const [transactions, setTransactions] = useState(() => {
@@ -29,12 +30,12 @@ const App = () => {
   return (
     <div className="container">
       <h1>💸 Personal Finance Tracker</h1>
-      <AddTransaction onAdd={handleAdd} /> 
-     <TransactionFilter selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} /> 
-       <Chart data={filteredTransactions} /> 
-      <TransactionList transactions={filteredTransactions} /> 
+      <AddTransaction onAdd={handleAdd} />
+      <Balance transactions={transactions} /> 
+      <TransactionFilter selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} />
+      <Chart data={filteredTransactions} />
+      <TransactionList transactions={filteredTransactions} />
     </div>
-  
   );
 };
 

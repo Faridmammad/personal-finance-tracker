@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/main.scss';
 
-
 const AddTransaction = ({ onAdd }) => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
-  const [category, setCategory] = useState('Digər');
+  const [category, setCategory] = useState('Other');
+  const [type, setType] = useState('outcome'); // yeni state
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const AddTransaction = ({ onAdd }) => {
     const newTransaction = {
       id: Date.now(),
       text,
-      amount: +amount,
+      amount: type === 'income' ? +amount : -Math.abs(amount), // income plus, outcome minus
       category,
       date: new Date().toISOString()
     };
@@ -25,6 +25,7 @@ const AddTransaction = ({ onAdd }) => {
     setText('');
     setAmount('');
     setCategory('Other');
+    setType('outcome');
   };
 
   return (
@@ -38,7 +39,7 @@ const AddTransaction = ({ onAdd }) => {
       <input
         type="number"
         value={amount}
-        placeholder="Ammount"
+        placeholder="Amount"
         onChange={(e) => setAmount(e.target.value)}
       />
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -48,6 +49,10 @@ const AddTransaction = ({ onAdd }) => {
         <option value="Clothes">Clothes</option>
         <option value="Utilities">Utilities</option>
         <option value="Other">Other</option>
+      </select>
+      <select value={type} onChange={(e) => setType(e.target.value)}>
+        <option value="income">Income</option>
+        <option value="outcome">Outcome</option>
       </select>
       <button type="submit">Submit</button>
     </form>
